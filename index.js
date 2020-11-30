@@ -1,15 +1,18 @@
 const express = require('express');
 const path = require('path');
+const students = require('./Members');
 
 const app = express();
 
-// app.get('/', (req, res)=>{
-//     // res.send("<h1>Hello wordssdsld</h1>");
-//     res.sendFile(path.join(__dirname, 'public', 'index.html'));
-// })
 
-//set static folder for urls
+
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 
-const PORT = process.env.PORT || 5000;
+app.get('/api/students', (req, res)=>{
+    res.json(students);
+});
+
+const PORT = process.env.PORT || 8080;
 app.listen(PORT , ()=>{console.log(`Server started on port ${PORT}`)});
