@@ -1,14 +1,13 @@
 const express = require('express');
 const path = require('path');
 const students = require('./Students');
+const moment = require('moment');
+const logger = require('./middleware/logger');
 
 const app = express();
 
-//middelware function
-const logger = (req,res,next)=>{
-    console.log('hello');
-    next();
-}
+
+
 
 app.use(logger);
 
