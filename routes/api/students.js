@@ -20,4 +20,16 @@ router.get('/:name', (req, res)=>{
     
 })
 
+router.post('/', (req, res)=>{
+    
+    const newMember = {
+        name: req.body.name,
+        age: req.body.age,
+        uni: req.body.uni
+    }
+
+    students.push(newMember);
+    res.json(students);
+})
+
 module.exports = router;

@@ -6,6 +6,9 @@ const app = express();
 
 app.use(logger);
 
+//body parser
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
 //added static folder
 app.use(express.static(path.join(__dirname, 'public')));
