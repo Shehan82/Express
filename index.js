@@ -1,15 +1,22 @@
 const express = require('express');
 const path = require('path');
-const students = require('./Members');
+const students = require('./Students');
 
 const app = express();
 
+//middelware function
+const logger = (req,res,next)=>{
+    console.log('hello');
+    next();
+}
+
+app.use(logger);
 
 
-
-
+//added static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+//response json 
 app.get('/api/students', (req, res)=>{
     res.json(students);
 });
