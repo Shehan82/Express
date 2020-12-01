@@ -64,5 +64,21 @@ router.put('/:name', (req, res)=>{
     
 })
 
+//delete
+
+router.delete ('/:name', (req, res)=>{
+    const found = students.some((student)=>{return student.name === req.params.name});
+    if(found)
+    {
+        res.json({msg:"student deleted",students: students.filter(student => student.name !== req.params.name)})
+    }
+    else
+    {
+        res.status(400);
+        res.json({msg:"bad request"});
+    }
+    
+})
+
 
 module.exports = router;
